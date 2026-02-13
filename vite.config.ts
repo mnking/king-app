@@ -27,6 +27,8 @@ export default defineConfig(({ mode }) => {
       exclude: ['lucide-react'],
     },
     server: {
+      // Allow access via LocalTunnel (*.loca.lt)
+      allowedHosts: ['.loca.lt'],
       proxy: {
         // Hardcoded proxies for real API services
         '/api/auth': {
