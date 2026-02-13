@@ -1,1 +1,0 @@
-export { CargoPackageHandoverPage } from './CargoPackageHandoverPage';

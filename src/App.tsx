@@ -1,76 +1,92 @@
-//
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { ThemeProvider } from './contexts/ThemeContext';
-import { useAuth } from '@/features/auth/useAuth';
-import { Sidebar, TopNavigation } from '@/app/layouts';
-// (login page is routed separately)
-import TetGreetingPage from '@/pages/TetGreetingPage';
-import { Loader2 } from 'lucide-react';
-import type { ViewType } from '@/config/routes.config';
-
-const AppContent = () => {
-  const { user, initialized } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  // (landing page is public; auth flow handled at /login)
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-
-  // Get current view from URL path
-  const getCurrentView = (): ViewType => {
-    const path = location.pathname.slice(1); // Remove leading slash
-    if (path === '' || path === 'dashboard') return 'dashboard';
-    return (path as ViewType) || 'dashboard';
-  };
-
-  const currentView = getCurrentView();
-
-  const handleViewChange = (view: ViewType) => {
-    navigate(`/${view}`);
-  };
-
-  if (!initialized) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-          <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    // Public landing page (no login required)
-    return <TetGreetingPage />;
-  }
-
+export default function App() {
   return (
-    <div className="flex h-screen bg-white dark:bg-gray-900">
-      <Sidebar
-        currentView={currentView}
-        onViewChange={handleViewChange}
-        isCollapsed={sidebarCollapsed}
-        onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
-      />
-      <div className="flex-1 flex flex-col min-h-0">
-        <TopNavigation
-          currentView={currentView}
-          onViewChange={handleViewChange}
-        />
-        <div className="flex-1 min-h-0 overflow-hidden">
-          <Outlet />
+    <main style={styles.page}>
+      <section style={styles.card}>
+        <p style={styles.kicker}>KING APP</p>
+        <h1 style={styles.h1}>Chúc mừng năm mới — An khang, thịnh vượng</h1>
+        <p style={styles.p}>
+          Chúc Vuong và gia đình một năm mới nhiều sức khỏe, nhiều niềm vui,
+          công việc hanh thông và tiền vào như nước.
+        </p>
+        <div style={styles.row}>
+          <a style={{ ...styles.btn, ...styles.btnPrimary }} href="#">
+            Bắt đầu
+          </a>
+          <a
+            style={{ ...styles.btn, ...styles.btnGhost }}
+            href="https://github.com/mnking/king-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Source
+          </a>
         </div>
-      </div>
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+      </section>
+    </main>
   );
 }
 
-export default App;
+const styles: Record<string, React.CSSProperties> = {
+  page: {
+    minHeight: '100vh',
+    display: 'grid',
+    placeItems: 'center',
+    padding: 24,
+    background: 'linear-gradient(180deg, #fff7ed, #fff1f2)',
+    color: '#0f172a',
+    fontFamily:
+      'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
+  },
+  card: {
+    width: 'min(720px, 100%)',
+    background: 'rgba(255,255,255,0.85)',
+    border: '1px solid rgba(226,232,240,1)',
+    borderRadius: 16,
+    padding: 28,
+    boxShadow: '0 8px 24px rgba(15,23,42,0.08)',
+    backdropFilter: 'blur(6px)',
+  },
+  kicker: {
+    margin: 0,
+    fontWeight: 800,
+    letterSpacing: 1,
+    color: '#b91c1c',
+    fontSize: 12,
+  },
+  h1: {
+    margin: '10px 0 0',
+    fontSize: 34,
+    lineHeight: 1.15,
+  },
+  p: {
+    margin: '14px 0 0',
+    fontSize: 16,
+    lineHeight: 1.6,
+    color: '#334155',
+  },
+  row: {
+    marginTop: 22,
+    display: 'flex',
+    gap: 10,
+    flexWrap: 'wrap',
+  },
+  btn: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '10px 14px',
+    borderRadius: 10,
+    textDecoration: 'none',
+    fontWeight: 700,
+    fontSize: 14,
+  },
+  btnPrimary: {
+    background: '#dc2626',
+    color: 'white',
+  },
+  btnGhost: {
+    background: 'white',
+    color: '#0f172a',
+    border: '1px solid rgba(226,232,240,1)',
+  },
+};
