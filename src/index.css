@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom focus styles for charts and interactive elements */
+.recharts-wrapper {
+  outline: none !important;
+  border: none !important;
+}
+
+.recharts-wrapper:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+.recharts-wrapper:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove default focus outline for all recharts elements */
+.recharts-surface:focus,
+.recharts-surface:focus-visible {
+  outline: none !important;
+}
+
+/* Remove border from recharts pie sectors */
+.recharts-layer.recharts-pie-sector,
+.recharts-layer.recharts-pie-sector path,
+.recharts-layer.recharts-pie-sector *,
+.recharts-pie-sector,
+.recharts-pie-sector path,
+.recharts-pie-sector * {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.recharts-layer.recharts-pie-sector:focus,
+.recharts-layer.recharts-pie-sector:focus-visible,
+.recharts-layer.recharts-pie-sector path:focus,
+.recharts-layer.recharts-pie-sector path:focus-visible,
+.recharts-pie-sector:focus,
+.recharts-pie-sector:focus-visible,
+.recharts-pie-sector path:focus,
+.recharts-pie-sector path:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus styles from all recharts elements */
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Custom hover effect for pie sectors */
+.recharts-layer.recharts-pie-sector:hover path {
+  filter: brightness(1.1) !important;
+  transition: filter 0.2s ease !important;
+}
+
+/* Custom focus ring for interactive chart containers */
+[data-chart-container]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5), 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

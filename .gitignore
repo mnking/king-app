@@ -1,0 +1,71 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+.env.*
+
+dev-debug.log
+# Dependency directories
+node_modules/
+# Environment variables
+.vscode
+# OS specific
+
+.cursor/mcp.json
+
+# MCP Directories (local configuration)
+.claude/
+.playwright-mcp/
+.serena/
+
+# MCP and AI Configuration (local customization)
+CLAUDE.md
+QWEN.md
+GEMINI.md
+
+# Local Documentation (not committed to repository)
+docs/
+
+# Backup Scripts
+backup-scripts/
+
+# Backup Scripts Directory (committed, but backups themselves are external)
+# Note: scripts/ directory is committed, but backup destinations are outside project
+# Backup exclusion is handled at repository root level
+
+# Temporary MCP configuration files
+.mcp.json
+
+.codex/
+.specify/
+.opencode/
+.qwen/
+.agent/
+specs/
+openspec/
+.qwen/
+.gemini/
+seed-data/
+.worktrees/
+

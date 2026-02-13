@@ -1,0 +1,1 @@
+export { CargoPackageStoragePage } from './CargoPackageStoragePage';

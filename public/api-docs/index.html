@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOS API Docs</title>
+    <style>
+      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; margin: 2rem; color: #111827; }
+      h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+      p { color: #4b5563; }
+      .list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem; max-width: 860px; }
+      .item { border: 1px solid #e5e7eb; border-radius: 0.5rem; background: #fff; padding: 0.75rem 1rem; }
+      .row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+      .title { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+      .links a { display: inline-block; margin-left: 0.75rem; color: #2563eb; text-decoration: none; }
+      .links a:first-child { margin-left: 0; }
+      .links a:hover { text-decoration: underline; }
+      .note { margin-top: 1.5rem; font-size: 0.9rem; color: #6b7280; max-width: 860px; }
+      .badge { background: #ecfdf3; color: #166534; border: 1px solid #bbf7d0; border-radius: 999px; padding: 0.15rem 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.01em; }
+    </style>
+  </head>
+  <body>
+    <h1>TOS Platform API Documentation</h1>
+    <p>Select a service to open its Swagger UI. All links are public (no JWT required).</p>
+
+    <div class="list">
+      <div class="item">
+        <div class="row">
+          <div class="title">CFS Service</div>
+          <div class="links">
+            <a href="/api-docs/cfs/" rel="noopener">Open UI</a>
+            <a href="/api-docs/cfs/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="title">Container Service</div>
+          <div class="links">
+            <a href="/api-docs/container/" rel="noopener">Open UI</a>
+            <a href="/api-docs/container/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="title">Customs Service <span class="badge">New</span></div>
+          <div class="links">
+            <a href="/api-docs/customs/" rel="noopener">Open UI</a>
+            <a href="/api-docs/customs/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="title">Carrier Service</div>
+          <div class="links">
+            <a href="/api-docs/carrier/" rel="noopener">Open UI</a>
+            <a href="/api-docs/carrier/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="title">Forwarder Service</div>
+          <div class="links">
+            <a href="/api-docs/forwarder/" rel="noopener">Open UI</a>
+            <a href="/api-docs/forwarder/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="title">Billing Service <span class="badge">New</span></div>
+          <div class="links">
+            <a href="/api-docs/billing/" rel="noopener">Open UI</a>
+            <a href="/api-docs/billing/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="title">Document Service</div>
+          <div class="links">
+            <a href="/api-docs/document/" rel="noopener">Open UI</a>
+            <a href="/api-docs/document/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="title">Auth Service</div>
+          <div class="links">
+            <a href="/api-docs/auth/" rel="noopener">Open UI</a>
+            <a href="/api-docs/auth/swagger.json" rel="noopener">JSON</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">
+      Tip: This portal is served by the Web app at <code>/api-docs</code>. The unified routes
+      <code>/api-docs/&lt;service&gt;</code> and legacy <code>/api/&lt;service&gt;/api-docs</code> both work.
+      Customs docs are now available alongside Billing; if you don't see them in your environment, redeploy the web app.
+    </p>
+  </body>
+  </html>
