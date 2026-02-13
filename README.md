@@ -1,30 +1,13 @@
-# TOS Platform Frontend (Web UI)
+# king-app
 
-React + TypeScript frontend for TOS/CFS operations management.
+Minimal Vite + React + TypeScript skeleton.
 
-## 🚨 Important
-- Don't touch prod data/secrets
-- Don't change CI/secrets without approval  
-- No AI attributions in commits
+## Scripts
 
-## 📁 Quick Start
+- `pnpm dev` — run dev server (default port 5173)
+- `pnpm build` — production build
+- `pnpm preview` — preview production build (default port 4173)
 
-### Setup
-1. `npm install`
-2. Copy `.env.example` → `.env`
-3. Set `API_BASE_URL`
+## Notes
 
-### Commands
-- `npm run dev` - Start dev server
-- `npm run build` - Build for production
-- `npm run type-check` - Check types
-- `npm run lint` - Lint code
-- `npm test` - Run tests
-
-### Project Structure
-- `src/app/` - App setup (providers, router)
-- `src/features/` - Feature modules
-- `src/shared/` - Reusable components
-- `src/pages/` - Route components
-
-<!-- See CLAUDE.md for AI-specific instructions -->
+This repo intentionally keeps only the essentials (single-page App) so it’s easy to extend.
