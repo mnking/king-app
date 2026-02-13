@@ -7,7 +7,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Agentation } from 'agentation';
 import { Loader2 } from 'lucide-react';
 import App from './App.tsx';
-import { ComingSoon, ProtectedRoute, ToastProvider } from '@/shared/components';
+import { ToastProvider } from '@/shared/components';
+import TetGreetingPage from '@/pages/TetGreetingPage';
 import { LoginForm } from '@/pages';
 import { AuthCallback } from '@/pages';
 import NotFoundPage from '@/pages/NotFoundPage';
@@ -48,12 +49,9 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <ProtectedRoute>
-            <Suspense fallback={<LoadingSpinner />}>
-              {/* <Dashboard /> */}
-              <ComingSoon />
-            </Suspense>
-          </ProtectedRoute>
+          <Suspense fallback={<LoadingSpinner />}>
+            <TetGreetingPage />
+          </Suspense>
         ),
       },
       // Generate all application routes from configuration

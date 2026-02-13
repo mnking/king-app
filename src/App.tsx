@@ -1,9 +1,10 @@
-import { useState } from 'react';
+//
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { useAuth } from '@/features/auth/useAuth';
 import { Sidebar, TopNavigation } from '@/app/layouts';
-import { LoginForm } from '@/pages';
+// (login page is routed separately)
+import TetGreetingPage from '@/pages/TetGreetingPage';
 import { Loader2 } from 'lucide-react';
 import type { ViewType } from '@/config/routes.config';
 
@@ -11,7 +12,7 @@ const AppContent = () => {
   const { user, initialized } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const [isSignUp, setIsSignUp] = useState(false);
+  // (landing page is public; auth flow handled at /login)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Get current view from URL path
@@ -39,12 +40,8 @@ const AppContent = () => {
   }
 
   if (!user) {
-    return (
-      <LoginForm
-        onToggleMode={() => setIsSignUp(!isSignUp)}
-        isSignUp={isSignUp}
-      />
-    );
+    // Public landing page (no login required)
+    return <TetGreetingPage />;
   }
 
   return (
