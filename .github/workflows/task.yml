@@ -1,0 +1,12 @@
+name: Run Every 5 Minutes
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  run-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log execution time
+        run: echo "✅ Ran at $(date -u)"
