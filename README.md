@@ -1,4 +1,4 @@
-# king-app 1
+# king-app
 
 Minimal Vite + React + TypeScript skeleton.
 
