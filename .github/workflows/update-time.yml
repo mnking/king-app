@@ -1,0 +1,30 @@
+name: Update time.txt
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-time:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Write current timestamp to time.txt
+        run: echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" > time.txt
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add time.txt
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: update time.txt [skip ci]"
+          git push
